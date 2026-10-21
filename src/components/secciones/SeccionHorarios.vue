@@ -32,7 +32,14 @@ onMounted(() => store.cargarOverview(props.materiaId))
         <span v-else>{{ c.start_time }} (sin hora de fin publicada)</span>
         <code v-if="textoAula(c)">{{ textoAula(c) }}</code>
         <span v-if="c.mode && c.mode !== 'presencial'" class="modo">{{ c.mode }}</span>
-        <span v-if="c.notes" class="notas">{{ c.notes }}</span>
+        <div v-if="c.notes" class="notas-container">
+          <a
+            :href="c.notes.replace(/^\[|\]$/g, '')"
+            class="notas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Mirá los horarios en la página oficial</a>
+        </div>
       </li>
     </ul>
   </div>
@@ -75,8 +82,16 @@ onMounted(() => store.cargarOverview(props.materiaId))
   text-transform: capitalize;
 }
 
-.notas {
+.notas-container {
   flex-basis: 100%;
-  font-size: 13px;
+  min-width: 0;
 }
+
+.notas {
+  display: inline;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+
 </style>

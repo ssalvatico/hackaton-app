@@ -66,9 +66,9 @@ body:has(.arbol) {
 
 <style scoped>
 .arbol {
-  --c-aprobada: #1f8a5b;
-  --c-regular: #b7791f;
-  --c-libre: #2563a8;
+  --c-aprobada: #24b80d;
+  --c-regular: #1f8fb7;
+  --c-libre: #c62813;
   --c-no-cursable: #8a93a6;
   display: flex;
   flex-direction: column;
